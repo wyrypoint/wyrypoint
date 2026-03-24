@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wyry Point – Twoje miejsce na biznes | Lokale do wynajęcia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --bg:#0f1115;
+  --card:#1a1d23;
+  --text:#fff;
+  --muted:#aaa;
+  --accent:#ff6a00;
+  --gold:#d4af37;
+  --transition: all 0.3s ease;
+}
+
+body {
+  margin:0;
+  font-family:'Poppins', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height: 1.6;
+}
+
+/* HERO */
+.hero {
+  position:relative;
+  height:100vh;
+  min-height: 600px;
+  overflow:hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-bg {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:120%;
+  background:url("wiz1.png") center/cover no-repeat;
+  z-index: 1;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(15,17,21,1));
+  z-index: 2;
+}
+
+.hero-content {
+  position:relative;
+  z-index:3;
+  text-align:center;
+  max-width: 900px;
+  padding: 20px;
+}
+
+.hero-logo {
+  width:280px;
+  margin-bottom:20px;
+  filter:drop-shadow(0 0 15px rgba(255,106,0,0.4));
+}
+
+.hero h1 {
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600;
+  margin-bottom: 15px;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.3rem;
+  color: #ddd;
+  margin-bottom: 30px;
+}
+
+/* SEKCJE */
+.section { padding: 90px 20px; max-width: 1100px; margin: auto; }
+
+.section h2 { font-size: 36px; margin-bottom: 20px; color: var(--accent); }
+
+.usp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.usp-card {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid #2a2f38;
+}
+
+.usp-card h3 { margin-top: 0; color: #fff; }
+
+/* ODLEGŁOŚCI */
+.dist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.dist-item {
+  background: rgba(255,106,0,0.05);
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid var(--accent);
+}
+
+.dist-item span { display: block; font-size: 26px; font-weight: 600; color: var(--accent); }
+
+/* IMAGE SECTION (+300px) */
+.image-section {
+  height: 888px;
+  position:relative;
+  overflow:hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-bg {
+  position:absolute;
+  width:100%;
+  height:80%;
+  background:url("wiz2.png") center/cover no-repeat;
+  top: 0;
+}
+
+.image-section::after {
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,0.6);
+}
+
+/* LOKALE GRID */
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:40px;
+}
+
+.card {
+  background:var(--card);
+  padding:30px;
+  border-radius:15px;
+  border:1px solid #2a2f38;
+  transition: var(--transition);
+}
+
+.card:hover { border-color: var(--accent); transform: translateY(-5px); }
+
+.card strong { font-size: 24px; color: var(--accent); display: block; margin-bottom: 10px; }
+
+/* DODANE STYLE DLA PREMIUM BOX */
+.premium-box {
+  border: 1px solid var(--gold);
+  background: rgba(212, 175, 55, 0.05);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.gold-text {
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 14px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* FORMULARZ */
+form { max-width: 600px; margin: 40px auto; background: #1a1d23; padding: 40px; border-radius: 20px; }
+
+form input, form textarea {
+  width:100%; padding:15px; margin:10px 0; border-radius:8px; border: 1px solid #2a2f38; background:#0f1115; color:#fff; box-sizing: border-box;
+}
+
+form button {
+  width: 100%; padding: 18px; background: var(--accent); color: #fff; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 16px; margin-top: 10px;
+}
+
+.footer { text-align:center; padding:60px; color:#555; background: #0a0c10; }
+
+@keyframes fadeUp {
+  from { opacity:0; transform:translateY(30px); }
+  to { opacity:1; transform:translateY(0); }
+}
+
+.btn {
+  text-decoration: none; background: var(--accent); color: #fff; padding: 18px 40px; border-radius: 50px; font-weight: 600; display: inline-block; transition: 0.3s;
+}
+
+.btn:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(255,106,0,0.3); }
+
+@media (max-width: 768px) { .image-section { height: 500px; } }
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-bg parallax"></div>
+  <div class="hero-content">
+    <img src="logo.png" class="hero-logo" alt="Wyry Point">
+    <h1>Zbuduj sukces w sercu Wyr</h1>
+    <p>Ostatnie wolne lokale w nowoczesnym centrum handlowo-usługowym.</p>
+    <a href="#kontakt" class="btn">Zapytaj o ofertę</a>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Dlaczego Wyry Point?</h2>
+  <div class="usp-grid">
+    <div class="usp-card">
+      <h3>Gwarantowany ruch</h3>
+      <p>Lokalizacja przy głównej arterii komunikacyjnej Wyr zapewnia stały przepływ potencjalnych klientów każdego dnia.</p>
+    </div>
+    <div class="usp-card">
+      <h3>Standard Premium</h3>
+      <p>Nowoczesna architektura, duże przeszklenia i wysoka jakość wykończenia, które podniosą prestiż Twojej marki.</p>
+    </div>
+    <div class="usp-card">
+      <h3>Komfort klientów</h3>
+      <p>Dedykowany parking bezpośrednio przed lokalami oraz łatwy podjazd dla dostaw i klientów zmotoryzowanych.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="background: #14171c;">
+  <h2>Strategiczny punkt aglomeracji</h2>
+  <p>Wyry Point łączy spokój lokalnej społeczności z bliskością największych miast Śląska.</p>
+  <div class="dist-grid">
+    <div class="dist-item">Mikołów<span>~ 4 min</span>Najbliższe sąsiedztwo</div>
+    <div class="dist-item">Tychy<span>~ 6 min</span>Szybki dojazd do strefy</div>
+    <div class="dist-item">Katowice<span>~ 15 min</span>Centrum Metropolii</div>
+  </div>
+</section>
+
+<section class="image-section">
+  <div class="image-bg parallax"></div>
+  <div style="position:relative; z-index:2; text-align:center; padding: 0 20px;">
+    <h2 style="font-size: clamp(30px, 5vw, 48px); color: #fff; margin-bottom: 20px;">Twoja witryna, której nie da się przegapić</h2>
+    <p style="font-size: 1.2rem; max-width: 700px; margin: auto;">Doskonała ekspozycja lokali gwarantuje, że Twój biznes stanie się rozpoznawalnym punktem na mapie okolicy.</p>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Znajdź przestrzeń dla siebie</h2>
+  <p>Oferujemy elastyczne powierzchnie dopasowane do różnych branż:</p>
+  <div class="grid">
+    <div class="card">
+      <strong>30 – 40 m²</strong>
+      <p>Idealne na butik, biuro ubezpieczeń, salon optyczny lub punkt kurierski.</p>
+    </div>
+    <div class="card">
+      <strong>60 m²</strong>
+      <p>Przestrzeń stworzona dla branży Beauty: fryzjer, kosmetyczka lub gabinet lekarski.</p>
+    </div>
+    <div class="card">
+      <strong>80 – 120 m²</strong>
+      <p>Duże lokale z zapleczem pod gastronomię, piekarnię lub osiedlowy market.</p>
+    </div>
+  </div>
+
+  <div class="premium-box">
+    <span class="gold-text"></span>
+    <h3 style="font-size: 28px; margin-bottom: 15px;">Budujemy synergię, nie konkurencję</h3>
+    <p style="color: #eee; max-width: 850px; margin: auto;">
+        W Wyry Point szukamy <strong>wyselekcjonowanych partnerów</strong>. Stosujemy zasadę jednego przedstawiciela z danej branży – szukamy osób, które doskonale znają swój rynek i chcą go zdominować w naszej lokalizacji. To okazja, by stać się jedynym i bezkonkurencyjnym punktem w swojej kategorii w całym obiekcie.
+    </p>
+  </div>
+</section>
+
+<section>
+  <div class="map-container" style="filter: grayscale(1) invert(0.92) contrast(1.2); line-height: 0;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d40854.49841804149!2d18.868352697240373!3d50.11603592817343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471135ef6b004245%3A0x6b4725c176711606!2sWyry!5e0!3m2!1spl!2spl!4v1710000000000!5m2!1spl!2spl" width="100%" height="550" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+<section id="kontakt" class="section">
+  <div style="text-align: center;">
+    <h2>Zarezerwuj lokal</h2>
+    <p style="color: var(--muted); max-width: 600px; margin: auto;">Zainteresowany? Zostaw dane kontaktowe. Nasz doradca przedstawi szczegółowe plany i warunki najmu.
+Planowane zakończenie inwestycji Q2 2027</p>
+  </div>
+  
+  <form action="https://formspree.io/f/xreozewn" method="POST">
+    <input type="text" name="name" placeholder="Imię i nazwisko" required>
+    <input type="text" name="business" placeholder="Rodzaj działalności (np. kawiarnia, biuro)">
+    <input type="email" name="_replyto" placeholder="Adres e-mail" required>
+    <input type="tel" name="phone" placeholder="Numer telefonu" required>
+    <textarea name="message" rows="4" placeholder="Dodatkowe pytania (np. preferowany metraż)"></textarea>
+    <input type="text" name="_gotcha" style="display:none">
+    <button type="submit">Wyślij zapytanie o ofertę</button>
+  </form>
+</section>
+
+<footer class="footer">
+  <p>Wyry Point – Blisko. Codziennie. Dla Ciebie</p>
+  <p style="font-size: 14px; margin-top: 10px;">ul. Pszczyńska, Wyry | wyrypoint@gmail.com | © 2026</p>
+</footer>
+
+<script>
+window.addEventListener("scroll", () => {
+  const scroll = window.scrollY;
+  document.querySelectorAll(".parallax").forEach(el => {
+    el.style.transform = `translateY(${scroll * 0.15}px)`;
+  });
+});
+</script>
+
+</body>
+</html>
