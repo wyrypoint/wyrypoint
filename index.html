@@ -15,7 +15,7 @@
   --muted:#aaa;
   --accent:#ff6a00;
   --gold:#d4af37;
-  --transition: all 0.6s ease;
+  --transition: all 0.3s ease;
 }
 
 body {
@@ -65,11 +65,37 @@ body {
 }
 
 .hero-logo {
-  width:180px;
+  width:560px; /* 2x większe */
+  max-width: 90%;
   margin-bottom:20px;
-  filter:drop-shadow(0 0 15px rgba(255,106,0,0.4));
+  filter:
+    drop-shadow(0 0 10px rgba(255,106,0,0.4))
+    drop-shadow(0 0 20px rgba(212,175,55,0.5))
+    drop-shadow(0 0 40px rgba(212,175,55,0.3));
+  animation: glowPulse 3s ease-in-out infinite;
 }
 
+/* dodaj NA KOŃCU CSS */
+@keyframes glowPulse {
+  0% {
+    filter:
+      drop-shadow(0 0 8px rgba(255,106,0,0.3))
+      drop-shadow(0 0 15px rgba(212,175,55,0.4))
+      drop-shadow(0 0 25px rgba(212,175,55,0.2));
+  }
+  50% {
+    filter:
+      drop-shadow(0 0 15px rgba(255,106,0,0.6))
+      drop-shadow(0 0 30px rgba(212,175,55,0.8))
+      drop-shadow(0 0 60px rgba(212,175,55,0.4));
+  }
+  100% {
+    filter:
+      drop-shadow(0 0 8px rgba(255,106,0,0.3))
+      drop-shadow(0 0 15px rgba(212,175,55,0.4))
+      drop-shadow(0 0 25px rgba(212,175,55,0.2));
+  }
+}
 .hero h1 {
   font-size: clamp(32px, 5vw, 52px);
   font-weight: 600;
